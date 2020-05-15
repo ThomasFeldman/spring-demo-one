@@ -14,7 +14,7 @@
     	<property name="printedLoggerLevel" value="FINE" />
 	</bean>
 	
-	<bean id="myFortune"
+	<bean id="myFortuneService"
 		class="com.luv2code.springdemo.HappyFortuneService">
 		</bean>
 	
@@ -22,9 +22,15 @@
     	class="com.luv2code.springdemo.TrackCoach">
     	
 		<!-- set up constructor injection -->
-		<constructor-arg ref="myFortune" />
+		<constructor-arg ref="myFortuneService" />
 	</bean>
 
+	<bean id="myCricketCoach"
+		  class="com.luv2code.springdemo.CricketCoach">
+		  
+		  <!-- set up setter injection -->
+		  <property name="fortuneService" ref="myFortuneService" />
+    </bean>
 
 </beans>
 
